@@ -11,8 +11,42 @@ const Palette = {
 
 export default class Weather extends Component {
     state = {
-        color: Palette.red
+        color: Palette.blue
     }
+
+    setBackgroundColor = () => {
+        const main = this.props.main;
+        console.log(main);
+        switch (main) {
+            case "Clear":
+                this.setState({ color: Palette.blue });
+                break;
+            case "Clouds":
+                this.setState({ color: Palette.blue });
+                break;
+            case "Thunderstorm":
+                this.setState({ color: Palette.deepblue });
+                break;
+            case "Drizzle":
+                this.setState({ color: Palette.blue });
+                break;
+            case "Rain":
+                this.setState({ color: Palette.deepblue });
+                break;
+            case "Snow":
+                this.setState({ color: Palette.deepblue });
+                break;
+            case "Extreme":
+                this.setState({ color: Palette.red });
+                break;
+            default:
+                break;
+        }
+    }
+
+    /*componentDidMount() {
+        this.setBackgroundColor();
+    }*/
 
     render() {
         return (
@@ -22,11 +56,17 @@ export default class Weather extends Component {
             >
                 <View style={styles.upper}>
                     <Text>Icon here</Text>
-                    <Text style={styles.temp}>{this.props.temp}˚</Text>
+                    <Text style={styles.temp}>
+                        {this.props.temp}˚
+                    </Text>
                 </View>
                 <View style={styles.lower}>
-                    <Text style={styles.title}>{this.props.main}</Text>
-                    <Text style={styles.subtitle}>{this.props.description}</Text>
+                    <Text style={styles.title}>
+                        {this.props.main}
+                    </Text>
+                    <Text style={styles.subtitle}>
+                        {this.props.description}
+                    </Text>
                 </View>
             </LinearGradient>
 
