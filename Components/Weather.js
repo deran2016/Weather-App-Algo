@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+const Palette = {
+    red: ["#AC725A", "#9C5353"],
+    green: ["#589A60", "#5BBB73"],
+    blue: ["#00C6FB","#005BEA"],
+    deepblue: ["#14375A", "#53799C"]
+}
+
 export default class Weather extends Component {
+    state = {
+        color: Palette.red
+    }
+
     render() {
         return (
             <LinearGradient
-                colors={["#00C6FB","#005BEA"]}
+                colors={this.state.color}
                 style={styles.container}
             >
                 <View style={styles.upper}>
@@ -33,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     temp: {
-        fontSize: 38,
+        fontSize: 48,
         backgroundColor: "transparent",
         color: "white",
         marginTop: 10
