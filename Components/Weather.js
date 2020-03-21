@@ -11,11 +11,11 @@ export default class Weather extends Component {
             >
                 <View style={styles.upper}>
                     <Text>Icon here</Text>
-                    <Text style={styles.temp}>25˚</Text>
+                    <Text style={styles.temp}>{this.props.temp}˚</Text>
                 </View>
                 <View style={styles.lower}>
-                    <Text style={styles.title}>Rainning</Text>
-                    <Text style={styles.subtitle}>For more info look outside</Text>
+                    <Text style={styles.title}>{this.props.main}</Text>
+                    <Text style={styles.subtitle}>{this.props.description}</Text>
                 </View>
             </LinearGradient>
 
