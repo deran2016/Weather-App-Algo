@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Alert} from 'react-native';
+import * as Location from 'expo-location';
 import Weather from './Components/Weather';
 
 export default class App extends Component {
   state = {
       isLoaded: true
+  }
+
+  getLocation = async () => {
+    try {
+      const response = await Location.requestPermissionsAsync();
+      const location = await Location.getCurrentPositionAsync();
+    } catch (error) {
+      Alert.alert("알림", "위치 권한을 얻지 못했습니다.");
+    }
+    const location = await Location.getCurrentPositionAsync();
+    console.log(location);
+  }
+
+  componentDidMount() {
+    this.getLocation();
   }
 
   render() {
