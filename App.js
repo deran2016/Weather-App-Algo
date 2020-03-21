@@ -30,7 +30,7 @@ export default class App extends Component {
   getWeather = async (latitude, longitude) => {
     try {
       const { data } = await Axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&lang=kr`
       );
       this.setState({ 
         temp: data.main.temp - 273.15,
