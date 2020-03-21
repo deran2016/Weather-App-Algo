@@ -2,56 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const Palette = {
-    red: ["#AC725A", "#9C5353"],
-    green: ["#589A60", "#5BBB73"],
-    blue: ["#00C6FB","#005BEA"],
-    deepblue: ["#14375A", "#53799C"]
-}
-
 export default class Weather extends Component {
-    state = {
-        color: Palette.blue
-    }
-
-    setBackgroundColor = () => {
-        const main = this.props.main;
-        console.log(main);
-        switch (main) {
-            case "Clear":
-                this.setState({ color: Palette.blue });
-                break;
-            case "Clouds":
-                this.setState({ color: Palette.blue });
-                break;
-            case "Thunderstorm":
-                this.setState({ color: Palette.deepblue });
-                break;
-            case "Drizzle":
-                this.setState({ color: Palette.blue });
-                break;
-            case "Rain":
-                this.setState({ color: Palette.deepblue });
-                break;
-            case "Snow":
-                this.setState({ color: Palette.deepblue });
-                break;
-            case "Extreme":
-                this.setState({ color: Palette.red });
-                break;
-            default:
-                break;
-        }
-    }
-
-    /*componentDidMount() {
-        this.setBackgroundColor();
-    }*/
-
     render() {
         return (
             <LinearGradient
-                colors={this.state.color}
+                colors={this.props.color}
                 style={styles.container}
             >
                 <View style={styles.upper}>
@@ -69,7 +24,6 @@ export default class Weather extends Component {
                     </Text>
                 </View>
             </LinearGradient>
-
         );
     }
 }
