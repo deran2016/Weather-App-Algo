@@ -90,9 +90,7 @@ export default class App extends Component {
       return (
           <View style={styles.container}>
               { isLoaded ? <Weather temp={temp} main={main} description={description} color={color}/>: (
-                  <View style={styles.loading}>
-                      <Text style={styles.loadingText}>날씨를 불러오지 못했습니다.</Text>
-                  </View>
+                  <Weather/>
               )}
           </View>
       );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class Weather extends Component {
     render() {
@@ -9,6 +10,15 @@ export default class Weather extends Component {
                 colors={this.props.color}
                 style={styles.container}
             >
+                <View style={styles.header}>
+                    <Ionicons 
+                        style={styles.settings} 
+                        name="ios-settings" 
+                        size={38} 
+                        color="white"
+                        onPress={() => console.log('hello')}
+                    />
+                </View>
                 <View style={styles.upper}>
                     <Text>Icon here</Text>
                     <Text style={styles.temp}>
@@ -37,6 +47,15 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    header: {
+        flexDirection: 'row',
+        alignItems: "flex-start",
+        justifyContent: "flex-end"
+    },
+    settings: {
+        marginTop: 50,
+        marginRight: 18
+    },
     temp: {
         fontSize: 48,
         backgroundColor: "transparent",
@@ -60,6 +79,6 @@ const styles = StyleSheet.create({
         fontSize: 24,
         backgroundColor: "transparent",
         color: "white",
-        marginBottom: 24
+        marginBottom: 38
     }
 });
